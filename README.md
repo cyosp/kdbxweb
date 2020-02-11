@@ -262,7 +262,10 @@ Use npm to build this project:
 
 
 To run tests:  
-`> npm test`  
+`> npm test`
+
+To create a node package:  
+`> npm run build:package`  
 
 ## 3rd party libs
 
