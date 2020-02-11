@@ -6,18 +6,20 @@ var path = require('path'),
 
 var debug = process.argv.indexOf('--debug') > 0;
 
-var StatsPlugin = require('stats-webpack-plugin');
 var TerserPlugin = require('terser-webpack-plugin');
+const CreateFileWebpack = require('create-file-webpack');
 
-const banner = 'kdbxweb v' + pkg.version + ', (c) ' + new Date().getFullYear() +
+const banner = 'kdbxweb v' + pkg.version + '⑂CYOSP' + ', (c) ' + new Date().getFullYear() +
     ' ' + pkg.author + ', opensource.org/licenses/' + pkg.license;
+
+const outputDir = 'dist/package/dist';
 
 module.exports = {
     mode: 'production',
     context: path.join(__dirname, '../../lib'),
     entry: './index.js',
     output: {
-        path: path.join(__dirname, '../../dist'),
+        path: path.join(__dirname, '../../' + outputDir),
         filename: 'kdbxweb' + (debug ? '' : '.min') + '.js',
         library: 'kdbxweb',
         libraryTarget: 'umd',
@@ -31,7 +33,11 @@ module.exports = {
         new webpack.BannerPlugin({
             banner: banner
         }),
-        new StatsPlugin('stats.json', { chunkModules: true })
+        new CreateFileWebpack({
+            path: outputDir + '/..',
+            fileName: 'package.json',
+            content: '{"name": "kdbxweb", "version": "' + pkg.version + '", "main": "dist/kdbxweb.js"}'
+        })
     ],
     node: {
         console: false,
