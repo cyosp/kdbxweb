@@ -27,3 +27,10 @@ deploy:
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   on:
     branch: fork/master/*
+
+# Note that after_deploy does not affect the status of the build
+after_deploy:
+  - cd dist/package
+  - cp ../../.npmrc .
+  - npm set _authToken $GITHUB_TOKEN_PACKAGES
+  - npm publish
