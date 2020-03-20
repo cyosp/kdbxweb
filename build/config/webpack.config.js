@@ -36,7 +36,7 @@ module.exports = {
         new CreateFileWebpack({
             path: outputDir + '/..',
             fileName: 'package.json',
-            content: '{"name": "kdbxweb", "version": "' + pkg.version + '", "main": "dist/kdbxweb.js"}'
+            content: '{"name": "@cyosp/kdbxweb", "version": "' + pkg.version + '", "description": "Kdbx KeePass database reader for web", "repository": {"type": "git", "url": "https://github.com/cyosp/kdbxweb.git"}, "main": "dist/kdbxweb.js"}'
         })
     ],
     node: {

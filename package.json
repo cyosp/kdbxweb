@@ -22,6 +22,9 @@
     "tests:plain": "mocha --recursive -R spec",
     "tests:cover": "istanbul cover -x 'lib/support/**' node_modules/mocha/bin/_mocha -- --recursive -R spec"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@cyosp"
+  },
   "keywords": [
     "kdbx",
     "keepass"
