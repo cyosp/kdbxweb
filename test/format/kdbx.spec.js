@@ -13,7 +13,7 @@ describe('Kdbx', function () {
             '0ba4bbdf2e44fe56b64136a5086ba3ab814130d8e3fe7ed0e869cc976af6c12a': '18350f73193e1c89211921d3016bfe3ddfc54d3e'
         };
         var hexChallenge = kdbxweb.ByteUtils.bytesToHex(challenge);
-        var response = responses[hexChallenge] || '0000000000000000000000000000000000000000';
+        var response = responses[hexChallenge];
         return Promise.resolve(kdbxweb.ByteUtils.hexToBytes(response));
     };
 
